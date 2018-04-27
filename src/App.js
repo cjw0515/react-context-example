@@ -1,11 +1,17 @@
 import React, { Component } from "react";
+import InputTextContainer from "./components/InputText";
+import TextList from "./components/TextList";
+import { TextProvider } from "./contexts/TextContext";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        hey
-      </div>
+      <TextProvider>
+        <div className="container">
+          <InputTextContainer />
+          <TextList />
+        </div>
+      </TextProvider>
     );
   }
 }
