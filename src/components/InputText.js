@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TextConsumer} from '../contexts/TextContext';
+import { TextConsumer, useContext } from '../contexts/addContext';
 
 
 class InputText extends Component{
@@ -23,21 +23,4 @@ class InputText extends Component{
 	}
 }
 
-const InputTextContainer = () => {
-	return (
-		<TextConsumer>
-			{
-				({actions, state}) => (
-					<div>
-						<InputText
-						actions={actions}
-						state={state}
-						/>
-					</div>
-				)
-			}
-		</TextConsumer>
-	)
-}
-
-export default InputTextContainer;
+export default useContext(InputText);

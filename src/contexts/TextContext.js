@@ -1,4 +1,4 @@
-import React, { Component, createContext } from "react";
+import React, { Component, createContext } from 'react';
 
 const Context = createContext();
 
@@ -9,30 +9,30 @@ const { Provider, Consumer: TextConsumer } = Context;
 
 class TextProvider extends Component {
   state = {
-    text: "",
-    textList: ["안녕하시요"]
+    text: '',
+    textList: ['안녕하시요'],
   };
 
   actions = {
-    onChange: e => {
+    onChange: (e) => {
       this.setState({
-        text: e.target.value
+        text: e.target.value,
       });
     },
     onAddText: () => {
       const { text, textList } = this.state;
 
       this.setState({
-        text: "",
-        textList: textList.concat(text)
+        text: '',
+        textList: textList.concat(text),
       });
-    }
+    },
   };
 
   render() {
     const { state, actions } = this;
-    //provider 내에서 사용할 값은 "value"라고 부른다.
-    //state와 액션을 넣은 객체를 provider의 value값으로 넣어준다.
+    // provider 내에서 사용할 값은 "value"라고 부른다.
+    // state와 액션을 넣은 객체를 provider의 value값으로 넣어준다.
     const value = { state, actions };
     return <Provider value={value}>{this.props.children}</Provider>;
   }
